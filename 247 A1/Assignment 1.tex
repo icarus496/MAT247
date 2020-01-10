@@ -22,16 +22,27 @@ INCMPLETE
 Let $u, v \in V$, $||u|| = ||v|| = 1$. Then, $|\rangle u, v \langle| = |1| = 1 = ||u|| ||v||$. So, by Cauchy-Schwartz, $u$ and $v$ are collinear, and have the same magnitude, so $u = -v or u = v$. However, if $u = -v$, $\langle u, v \rangle = \langle -v, v \rangle = - \langle v, v \rangle < 0$. But $\langle u, v \rangle = 1$, which is a contradiction, so $u = v$.
 
 \subsection*{Q11}
-
-\subsection*{Q13}
-\begin{huge}
-	Add image here.
-\end{huge}
+Let $a,b \in \mathbb{R}^4$ with the inner product defined as the dot product. 
 \begin{align*}
-	||u - v||^2 &= ||u||^2 + ||v||^2 - 2||u|| ||v||\cos \theta\\
-	\rangle u - v, u - v \langle &= \rangle u, u \langle + \langle v, v \rangle - 2 ||u|| ||v||\cos \theta\\
-	\langle u, u \rangle - 2 \langle u, v \rangle + \langle v, v \rangle &= \rangle u, u \langle + \langle v, v \rangle - 2 ||u|| ||v||\cos \theta\\
-	-2\langle u, v \rangle &= -2||u|| ||v||\cos \theta\\
-	\langle u, v \rangle = ||u|| ||v||\cos \theta
+	a &= (\sqrt{a}, \sqrt{b}, \sqrt{c}, \sqrt{d})\\
+	b &= (\frac{1}{\sqrt{a}}, \frac{1}{\sqrt{b}}, \frac{1}{\sqrt{c}},\frac{1}{\sqrt{d}})\\
+	\text{then } |\langle a, b \rangle| &= |4| = 4\\
+	||a|| &= \sqrt{\langle a, a \rangle} = \sqrt{a + b + c + d}\\
+	||b|| &= \sqrt{\langle b, b \rangle} = \sqrt{\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}}\\
 \end{align*}
+So by Cauchy - Schwartz:
+\begin{align*}
+	|\langle a, b \rangle| &\leq ||a|| ||b||\\
+	4 &\leq \sqrt{a + b + c + d} \sqrt{\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}}\\
+	16 &\leq (a+b+c+d)(\frac{1}{a} + \frac{1}{b}+ \frac{1}{c}+\frac{1}{d})\\
+\end{align*}
+\subsection*{Q19}
+\begin{align*}
+	\langle u, v \rangle &= \frac{||u+v^2|| - ||u-v||^2}{4}\\
+	&= \frac{\langle u+v, u+v \rangle - \langle u-v, u-v \rangle}{4}\\
+	&= \frac{\langle u, u \rangle + \langle u , v \rangle + \langle v, u \rangle + \langle v, v \rangle - \langle u, u \rangle + \langle v, u \rangle + \langle u, v \rangle - \langle v, v \rangle}{4}\\
+	&= \frac{4\langle u , v \rangle}{4}\\\
+	&= \langle u, v \rangle
+\end{align*}
+
 \end{document}
