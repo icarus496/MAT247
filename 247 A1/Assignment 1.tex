@@ -14,8 +14,23 @@
 \subsection*{Q3}
 Let $S$ be the set of inner products with the positivity condition. 
 Let  $S^\prime$ be the set of inner products with the new condition. To start, let $f \in S$. Then, $f(v, v) > 0 \text{ } \forall v \in V \text{ with } v \neq 0$, so the new condition is satisfied since $\exists v \in V \text{ with } f(v, v) > 0$. So, $f \in S^\prime$, so $S \subseteq S^\prime$. 
-Now consider the other direction: take a function $g \in S^\prime$. We know that by the new inner product definition, $\exists v \in V$ such that $g(v, v) > 0$. This $v$ must be nonzero, as we still have the definiteness ax
-
+Now consider the other direction: take a function $g \in S^\prime$. We know that by the new inner product definition, $\exists v \in V$ such that $g(v, v) > 0$. This $v$ must be nonzero, as we still have the definiteness axiom. Now, by contradiction, consider a nonzero vector $k$ orthogonal to $v$. Then, 
+\begin{align*}
+	\langle k , k \rangle &< 0\\
+	\exists a: a \langle k, k \rangle &= - \langle v, v \rangle\\
+	\langle \sqrt{a}k, \sqrt{a}k\rangle + \langle v, v \rangle &= 0\\
+\end{align*}
+So, 
+\begin{equation*}
+	\langle \sqrt{a}k + v, \sqrt{a}k + v \rangle = \langle \sqrt{a}k, \sqrt{a}k\rangle + \langle v, v \rangle = 0\\
+\end{equation*}
+Thus $\sqrt{a}k + v = 0 \Rightarrow k = -\frac{v}{\sqrt{a}}$, contradicting $k$ being orthogonal to $v$. So, $g(k, k) = 0$ for all $k$ orthogonal to $v$. Then, $\forall w \in V$, we can write $w$ as a sum of a scalar multiple of c plus a vector $k$ orthogonal to $v$. 
+\begin{align*}
+w&= cv + k\\
+\langle w, w \rangle &= \langle cv+k, cv+k \rangle\\
+&= \langle cv, cv \rangle + \langle k, k \rangle\\
+\end{align*}
+And since both terms of this sum are positive, we know that the inner product of w with itself is positive, so $g(w, w) > 0$ $\forall$ nonzero $w \in V$. That means $g \in S$, so  $S^\prime \subseteq S$, completing the proof.
 \subsection*{Q8}
 Let $u, v \in V$, $||u|| = ||v|| = 1$. Then, $|\rangle u, v \langle| = |1| = 1 = ||u|| ||v||$. So, by Cauchy-Schwartz, $u$ and $v$ are collinear, and have the same magnitude, so $u = -v or u = v$. However, if $u = -v$, $\langle u, v \rangle = \langle -v, v \rangle = - \langle v, v \rangle < 0$. But $\langle u, v \rangle = 1$, which is a contradiction, so $u = v$.
 
