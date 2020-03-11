@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bbold}
+\usepackage{amssymb}
+\begin{document}
+Let $U = \{u\in V: u = Pv \text{ for some } v\in V\}$. The fact that this is a subspace of $v$ follows from the linearity of $P$. We also know $V = U^{\perp} \oplus U$. First, let's show $Pu = u$ for all $u \in U$. 
+\begin{align*}
+Pv &= u\\
+PPv &= Pu\\
+Pv &= Pu\\
+u &= Pu
+\end{align*}
+as desired. Now, take $w \in U^{\perp}$. Assume by contradiction that $Pw\neq0$. Then, since $Pw \in U$, $\frac{4||w||^{2}}{||Pw||^{2}}Pw \in U$. Then, let $v = \frac{4||w||^{2}}{||Pw||^{2}}Pw + w$. Call the first term $u$. We know that since $u\in U$ that $u$ and $w$ are orthogonal.  Since everything involved is positive, $||Pv|| \leq ||v|| \iff ||Pv||^{2} \leq ||v||^{2}$. So, we know 
+\begin{align*}
+\langle Pv, Pv \rangle &\leq \langle u+v, u+v \rangle\\
+&= u^{2} + w^{2}\\
+\Longrightarrow ||u||^{2} + \langle u, Pw \rangle + \langle Pw, u \rangle + ||Pw||^{2} &\leq ||u||^{2} + ||w||^{2}\\
+\frac{4||w||^{2}}{||Pw||^{2}}\langle Pw, Pw\rangle + \frac{4||w||^{2}}{||Pw||^{2}} \langle Pw, Pw \rangle + ||Pw||^{2} &\leq ||w||^{2} && \textit{Since $\frac{4||w||^{2}}{||Pw||^{2}}$ is positive and real}\\
+4||w||^{2} + 4||w||^{2} + ||Pw||^{2} &\leq ||w||^{2}
+\end{align*}
+This is a contradiction, so that means $\nexists w \in U^{\perp}: Pw = 0$, or, in other words, $\forall w \in U^{\perp}, Pw = 0$. And, since we know that every $v \in V$ can be written as a sum of a $U \in u$ and a $w \in U^{\perp}$, we have $Pv = Pw + Pu = 0 + u = u$. This is the definition of $P_{U}$. QED.
+\end{document}

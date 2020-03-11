@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bbold}
+\begin{document}
+First, note that if $||u|| \leq \varepsilon ||v||,  \forall \varepsilon > 0$, that's the same as saying $||u|| \leq \varepsilon,  \forall \varepsilon > 0$. Also, since both $||u||, \varepsilon \geq 0$, $||u|| \leq \varepsilon \iff ||u||^{2} \leq \varepsilon, \forall \varepsilon$.\\
+
+It is therefore sufficient to show that $\exists m: \forall \varepsilon > 0, ||T^{m}v||^{2} \leq \varepsilon$.\\
+
+Since $\mathbb{F} = \mathbb{C}$, there exists an orthonormal basis of $V$ such that $T$ is upper triangular. We'll work in that basis. Let $\lambda_{i}$ be the $i$th diagonal element of $T$. Each $\lambda_{i}$ corresponds to an eigenvalue of $T$, so the absolute value of each $|\lambda_{i}$ is less than 1. Also, we know that if $T$ is upper triangular, so is $T^{m}$. Any subspace of $U$ is invariant under $T$, so any subspace of $U$ is also invariant under $T^{m}$. We'll prove using induction on the dimension of $U$.\\
+
+Base case: $dim U = 1$. (Since it's trivially true for $dim U = 0$) Then, $v = a_{1}e_{1}$. So, $Tv = a_{1}\lambda_{1}^{m}e_{1}$. So, $||T^{m}v||^{2} = |a_{1}\lambda^{m}_{1}||^{2} = |a_{1}|^{2}|\lambda_{1}|^{2m}$, and since $|\lambda_{1}| < 1$ picking $m: |\lambda|^{2m} < \frac{\varepsilon}{|a_{1}|}$ suffices.\\
+
+Inductive Step: Assume if $U =$span$(e_{1}, ... e_{k})$,  $dim U = k$ there exists an $m$ that works for all vectors in $U$. Note that, in fact, if $m$ works for a subspace $U$, any integer multiple of $m$ does, since $T^{m}u \in U$. For simplicity, let $U^{\prime}$ refer to the $k$ dimensional subspace given by span$(e_{1}, ... e_{k})$. This will make the rest of the proof a lot easier to read.\\
+
+
+Now, we need to prove for a $k+1$ dimensional subspace of $V$. Let $U =$span$(e_{1}, ... e_{k+1})$. Then, $v = a_{1}e_{1} + ... + a_{k}e_{k} + a_{k+1}e_{k+1}$. So, $T^{m}v = T^{m}(a_{1}e_{1} + ... + a_{k}e_{k}) + T^{m}(a_{k+1}e_{k+1})$. Let $T^{m}(a_{1}e_{1} + ... + a_{k}e_{k}) = L$, and note that since $T^{m}$ is upper triangular, $T^{m} a_{k+1}e_{k+1} = a_{k+1}T^{m}e_{k+1}$. $T^{m}e_{k+1}$ is equal to $\lambda^{m}_{k+1}e_{k+1}$ plus some linear combination of $e_{1}, ... e_{k}$. Call this linear combination $v^{\prime}$. So, we have $T^{m}v = L + v^{\prime} + a_{k+1}\lambda^{m}_{k+1}e_{k+1}$. Both $L, v^{\prime} \in U^{\prime}$.\\
+
+Since the power of $T$ can be whatever we want, apply $T^{m}$ to both sides again, getting:
+\begin{equation*}
+T^{m}T^{m}v = T^{m}(L + v^{\prime}) + a_{k+1}\lambda^{m}_{k+1}T^{m}e_{k+1}
+\end{equation*}
+And, again, for readability, let's let $p = 2m$. Then, we have:
+\begin{equation*}
+T^{p}v = T^{m}(L + v^{\prime}) + a_{k+1}\lambda^{m}_{k+1}(\lambda^{m}_{k+1}e_{k+1} + v^{\prime}). 
+\end{equation*}
+The claim is that $\forall \varepsilon>0 \exists p$ so that $||T^{p}v|| \leq \varepsilon$. Now we expand the left side:
+\begin{align*}
+||T^{p}v||^{2} &= \langle T^{p}v, T^{p}v \rangle\\
+&= \langle T^{m}(L+v^{\prime}) + a_{k+1}\lambda^{m}_{k+1}v^{\prime} +  a_{k+1}\lambda^{p}_{k+1}e_{k+1}, T^{m}(L+v^{\prime}) + a_{k+1}\lambda^{m}_{k+1}v^{\prime} +  a_{k+1}\lambda^{p}_{k+1}e_{k+1}  \rangle\\
+&= \langle T^{m}(L+v^{\prime}), T^{m}(L+v^{\prime}) + a_{k+1}\lambda^{m}_{k+1}v^{\prime} +  a_{k+1}\lambda^{p}_{k+1}e_{k+1} \rangle\\
+&+ \langle a_{k+1}\lambda^{m}_{k+1}v^{\prime}, T^{m}(L+v^{\prime}) + a_{k+1}\lambda^{m}_{k+1}v^{\prime} +  a_{k+1}\lambda^{p}_{k+1}e_{k+1} \rangle\\
+&+ \langle  a_{k+1}\lambda^{p}_{k+1}e_{k+1}, T^{m}(L+v^{\prime}) + a_{k+1}\lambda^{m}_{k+1}v^{\prime} +  a_{k+1}\lambda^{p}_{k+1}e_{k+1} \rangle\\
+&= \langle T^{m}(L+v^{\prime}), T^{m}(L+v^{\prime}) \rangle\\
+&+ \langle T^{m}(L+v^{\prime}), a_{k+1}\lambda^{m}_{k+1}v^{\prime} +  a_{k+1}\lambda^{p}_{k+1}e_{k+1} \rangle\\
+&+ a_{k+1}\lambda^{m}_{k+1} \langle v^{\prime}, T^{m}(L+v^{\prime})\rangle\\
+&+ a_{k+1}\lambda^{m}_{k+1}\langle v^{\prime}, a_{k+1}\lambda^{m}_{k+1}v^{\prime} +  a_{k+1}\lambda^{p}_{k+1}e_{k+1}\rangle\\
+&+ a_{k+1}\lambda^{p}_{k+1} \langle e_{k+1}, T^{m}(L+v^{\prime}) + a_{k+1}\lambda^{m}_{k+1}v^{\prime} +  a_{k+1}\lambda^{p}_{k+1}e_{k+1} \rangle\\
+&=||T^{p}v||^{2}\\
+&+\overline{a_{k+1}\lambda^{m}_{k+1}}\langle T^{m}(L+v^{\prime}), v^{\prime} +  \lambda^{m}_{k+1}e_{k+1} \rangle\\
+&+ a_{k+1}\lambda^{m}_{k+1} \langle v^{\prime}, T^{m}(L+v^{\prime})\rangle\\
+&+ a_{k+1}\lambda^{m}_{k+1} \langle v^{\prime},  a_{k+1}\lambda^{m}_{k+1}v^{\prime} +\lambda^{m}_{k+1}e_{k+1} \rangle\\
+&+ a_{k+1}\lambda^{p}_{k+1} \langle e_{k+1}, T^{m}(L+v^{\prime}) + a_{k+1}\lambda^{m}_{k+1}v^{\prime} +  a_{k+1}\lambda^{p}_{k+1}e_{k+1} \rangle\\
+\end{align*}
+\begin{align*}
+&=||T^{p}v||^{2} + \overline{a_{k+1}\lambda^{m}_{k+1}}\langle T^{m}(L+v^{\prime}),v^{\prime} \rangle +a_{k+1}\lambda^{m}_{k+1} \langle v^{\prime}, T^{m}(L+v^{\prime})\rangle +a_{k+1}\lambda^{m}_{k+1} \langle v^{\prime},  a_{k+1}\lambda^{m}_{k+1}v^{\prime} \rangle\\
+&+a_{k+1}\lambda^{p}_{k+1} \langle e_{k+1}, a_{k+1}\lambda^{p}_{k+1}e_{k+1} \rangle\\
+&=||T^{p}v||^{2} + Re(\overline{a_{k+1}\lambda^{m}_{k+1}}\langle T^{m}(L+v^{\prime}),v^{\prime} \rangle) + |a_{k+1}|^{2}|\lambda^{m}_{k+1}|^{2}||v^{\prime}||^{2} + ||a_{k+1}|^{2}|\lambda^{p}_{k+1}|^{2}\\
+&=||T^{p}v||^{2} + Re(\overline{a_{k+1}\lambda^{m}_{k+1}}\langle T^{m}(L+v^{\prime}),v^{\prime} \rangle) + |a_{k+1}|^{2}|\lambda_{k+1}|^{p}||v^{\prime}||^{2} + |a_{k+1}|^{2}|\lambda_{k+1}|^{2p}
+\end{align*}
+Don't worry, almost done. That was gross, but what's important is that in front of every term of that sum there's a factor of either $\lambda^{m}_{k+1}$ or $\lambda^{p}_{k+1}$, other than the first term $||T^{p}v||^{2}$, and the term that takes the real part of some complex number. Let's address the $||T^{p}v||^{2}$ first. Since by induction we know that there's a number $k$ that lets us make the first term as small as we want, we can pick a value of $m$ that's an integer multiple of $k$ that makes $|\lambda_{k+1}^{p}|$ as small as we want. And of course, if $|\lambda_{k+1}|^{p}$ is as as small as we want, $|\lambda_{k+1}|^{2p}$ is smaller still. Similarly, $Re(\overline{a_{k+1}\lambda^{m}_{k+1}}\langle T^{m}(L+v^{\prime}),v^{\prime} \rangle)$ scales with $\lambda_{k+1}$, so we can make that as small as we want by exponentiating $\lambda_{k+1}$ as well. So, we can pick an $m$ that makes each term as small as we want. For a given $\varepsilon$, we just pick an $m$ that makes each term less or equal to $\frac{\varepsilon}{4}$, and we're done. 
+\end{document}

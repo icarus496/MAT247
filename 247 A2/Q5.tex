@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bbold}
+\begin{document}
+$U = $span$((1,1, 0, 0), (1, 1, 1, 2))$. We want to find a vector in $U$ such that the distance to $(1, 2, 3, 4)$ is minimal. We can find this just by calculating $P_{U}(1, 2, 3, 4)$. To do that, we need to find an orthonormal basis for $U$. Since $(1, 1, 0, 0), (1, 1, 1, 2)$ are lin. indep. they form a basis for $U$. So, just apply Gram-Schmidt to those vectors to get an orthonormal basis for $U$. 
+\begin{align*}
+e_{1} &= \frac{(1, 1, 0 ,0)}{||(1, 1, 0, 0)||} &&= \frac{1}{\sqrt{2}}(1, 1, 0, 0)\\
+e_{2} &= \frac{(1, 1, 1, 2) - \langle (1, 1, 1, 2),e_{1} \rangle e_{1} }{||1, 1, 1, 2) - \langle (1, 1, 1, 2),e_{1} \rangle e_{1}||} &&= \frac{1}{\sqrt{5}}(0, 0, 1, 2)
+\end{align*}
+Then, to find $P_{U}(1, 2, 3, 4)$, just compute:
+\begin{align*}
+\langle(1, 2, 3, 4)e_{1}\rangle e_{1} + \langle(1, 2, 3, 4)e_{2}\rangle e_{2} &= \frac{3}{2}(1, 1, 0, 0) + \frac{11}{5}(0, 0, 1, 2)
+\end{align*}
+So, the vector $u \in U$ that minimizes the distance to $(1, 2, 3, 4)$ is $u = \frac{3}{2}(1, 1, 0, 0) + \frac{11}{5}(0, 0, 1, 2)$.
+\end{document}

@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bbold}
+\begin{document}
+For if, assume $v \in span(e_{1},...e_{n})$. Then, 
+\begin{align*}
+||v||^{2} &= \langle v, v \rangle\\
+&= \langle v, a_{1}e_{1} + ... + a_{m}e_{m} \rangle\\\\
+&= \sum_{j=1}^{m} \sum_{i=1}^{m} \langle a_{j}e_{j}, a_{i}e_{i} \rangle\\
+&= \sum_{i=1}^{m} \langle a_{i}e_{i}, a_{i}e_{i} \rangle\\
+&= \sum_{i=1}^{m} |a_{i}|^{2}\langle e_{i}, e_{i} \rangle\\
+&= \sum_{i=1}^{m} |a_i \langle e_{i}, e_{i} \rangle|^{2} && \textit{since $\langle e_{i}, e_{i} \rangle = 1$}\\
+&= \sum_{i=1}^{m} |\langle a_{i}e_{i},e_{i}\rangle|^{2}\\
+&= \sum_{i=1}^{m} \langle a_{i}e_{i}, a_{i}e_{i} \rangle\\
+&= \sum_{i=1}^{m} \langle v, a_{i}e_{i} \rangle && \textit{since all other terms of the inner product go to 0}\\
+\end{align*}
+As desired. Now, for only if:
+We know $V$ has an orthonormal basis, $e_{1},...e_{k}$ with $k \geq m$. Then, if $v\notin$ span$(e_{1}, ... e_{m})$, $v\in$span$(e_{1}, ... e_{n})$ with $k \geq n > m$. So, $v = a_{1}e_{1} + ... + a_{n}e_{n}$ with at least 1 of $e_{i} \neq 0, i>m$. Then, we have:
+\begin{align*}
+||v||^{2} &= \langle v, v\rangle\\
+&=\langle a_{1}e_{1} + ... + a_{n}e_{n},  a_{1}e_{1} + ... + a_{n}e_{n} \rangle\\
+&=\sum_{i=1}^{n} |a_{i}|^{2} \langle e_{i}, e_{i} \rangle\\
+&=\sum_{i=1}^{n} |a_{i}|^{2}\\
+&\textit{and}\\
+\sum_{i=1}^{m}|\langle v, e_{i} \rangle|^{2} &= \sum_{i=1}^{m}|a_{i}|^{2}\\
+&\textit{So, since set these equal, and we get}\\
+\sum_{i=1}^{m}|a_{i}|^{2} - \sum_{i=1}^{n} |a_{i}|^{2} &= 0\\
+&= -\sum_{i=m+1}^{n}|a_{i}|^{2}
+\end{align*}
+So, we get: 
+\begin{equation*}
+-\sum_{i=m+1}^{n}|a_{i}|^{2} = 0
+\end{equation*}
+Which is only possible if each $a_{i} = 0$, which contradicts our assumption above. Therefore, we need $v\in$span$(e_{1},..., e_{m})$. QED.
+\end{document}

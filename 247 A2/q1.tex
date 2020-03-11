@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bbold}
+\begin{document}
+Let $L(f) = \sum_{n\in \mathbb{Z}} f(n)$. First, show $L$ is linear:
+\begin{align*}
+L(f + g) &= \sum_{n \in \mathbb{Z}} (f + g)(n)\\
+&= \sum_{n \in \mathbb{Z}} f(n) + \sum_{n \in \mathbb{Z}} g(n)\\
+&= L(f) + L(g)
+&\textit{So, additive. Now show homogenous:}\\
+L(\lambda f) &= \sum_{n \in \mathbb{Z}} \lambda f(n)\\
+&= \lambda L(f)
+\end{align*}
+So $L$ is a linear map from $V \rightarrow \mathbb{C}$. Now suppose, by contradiction that $\exists v \in V: L(w) = \langle w, v \rangle \forall w$. Then, have $L(w) = \sum_{n} w(n) \overline{v(n)}$. Now, there are finitely many $n: \overline{v(n)} \neq 0$. Let $s = \{n\in \mathbb{Z}: \overline{V(n)}\} = \neq 0$. Let $M = \mathbb{Z}/s$. Define take some finite subset of $M$ with all positive entries, call it $m$. Define 
+\[ g:\mathbb{Z} \rightarrow C: g(x) = 
+\begin{cases} 
+ x \in m & x\\ 
+ x \notin m & 0\\
+ \end{cases} \]
+Then g is nonzero at only the cardinality of $m$ points, which is finite, so $g \in V$, but $L(g) = \sum (m_{i} \in m)$, but $\langle g, v \rangle = 0$, since $v$ is 0 everywhere $g$ is nonzero, contradicting our assumption that $v$ worked for all $f \in V$, as desired.
+\end{document}
