@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bbold}
+\begin{document}
+\subsubsection*{Q2}
+Assume by contradiction that $S^{2} = T$. Note also that $T^{3} = S^{6} = 0$ and $T^{2} = S^{4} = \begin{pmatrix}
+0 & 0 & 1\\
+0 & 0 & 0\\
+0 & 0 & 0\\
+\end{pmatrix}
+$.
+Then $S$ is necessarily nilpotent, since $S^{6} = 0$. dim$v = 3$, and for all nilpotent operators $N$, $N^{\text{dim } V} = 0$. However, $S^{4} \neq 0$, which is a contradiction. Therefore, no such operator $S$ exists.
+\end{document}
