@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bbold}
+\newcommand{\range}[1]{\text{range }{#1}} 
+\newcommand{\drange}[1]{\text{dim range }{#1}}
+\newcommand{\Null}[1]{\text{null }{#1}} 
+\newcommand{\dnull}[1]{\text{dim null }{#1}}
+\newcommand{\tm}{T^{m}}
+\newcommand{\Tm}{T^{m+1}}
+\begin{document}
+\subsubsection*{Q3}
+For the first direction, suppose $\range{T^{m}} = \range{T^{m+1}}$. Now, suppose $v\in \Null{T^{m}}$. Then, $T^{m}v = 0$, so $T^{m+1}v = 0$. Therefore, $\Null{T^{m}} \subset \Null{T^{m+1}}$. By the rank-nullity theorem, $\drange{T^{m}} + \dnull{T^{m}} = \drange{\Tm} + \dnull{\Tm}$, and from our assumption $\range{\tm} = \range{\Tm}$, so $\dnull{\tm} = \dnull{\Tm} = k$. Let $\beta = \{e_{1}, ... e_{k}\}$ be a basis for $\range{\tm}$. Since  $\Null{T^{m}} \subset \Null{T^{m+1}}$, $\{e_{1}, ... e_{k}\} \in \range{\Tm}$. But, since $\dnull{\Tm} = m$, $\beta$ is also a basis for $\Null{\Tm}$, so $\Null{\tm} = \Null{\Tm}$, completing the proof in one direction.\\
+
+
+\noindent Now, for the other direction, suppose $\Null{\tm} = \Null{\Tm}$. We know from the rank-nullity theorem that $\drange{\tm} = \drange{\Tm} = k$. So, it only remains to prove that either $\range{\tm} \subset \range{\Tm}$, or vise-verse, since the same argument as above will apply. We will prove the latter ( $\range{\Tm} \subset \range{\tm}$):
+Consider a nonzero $v \in \range{\Tm}$ (because it's trivially true that both ranges contain 0) Then, $\exists k \in V: \Tm k = v$. So, $\Tm k = T\tm k = v$, so $v \in \range{\tm}$, meaning $\range{\Tm} \subset \range{\tm}$, and the rest follows from the same argument as above.
+\end{document}
