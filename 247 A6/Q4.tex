@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bbold}
+\begin{document}
+\subsubsection*{Lemma 1}
+Suppose you have a diagonal operator of the form $D =
+\begin{pmatrix}
+\lambda & 0 & ... & 0\\
+0 & \lambda & ... & 0\\
+... &... &... & ...\\
+0 & ... & ... & \lambda\\
+\end{pmatrix}
+$ and some nilpotent matrix $N$ with all entries above the diagonal. Then, $DN = ND$ .
+\subsubsection*{Proof:}
+$N_{i,j} = 0$ when $i \geq j$, and is not necessarily 0 when $i < j$. $D_{i,j} = 0$ if $i \neq j$ and equal to $\lambda$ otherwise. So, 
+\begin{align*}
+ND_{i,j} &= \sum_{q = 1}^{m} N_{i, q}D_{q, j}\\
+&=0, q \neq j \text{ or } i \geq q
+\end{align*}
+So for it to be nonzero, need $q = j$ and $i < q = j$ So,
+ \[ ND_{i, j} = \begin{cases}
+		 i < j & N_{i,j}\lambda\\
+		otherwise & 0\\
+		\end{cases}
+		\]
+Now, consider $DN_{i,j}$:
+\begin{align*}
+DN_{i,j} &= \sum_{q=1}^{m} D_{i, q}N_{q, j}\\
+&= 0, i \neq q \text{ or } q \geq j\\
+\end{align*}
+So, we need $q = i$ and $i = q < j$, so:
+\[ DN_{i, j} = \begin{cases}
+		 \lambda N_{i,j} & i < j\\
+		otherwise & 0\\
+		\end{cases}
+		\]
+Completing the proof.
+\subsubsection*{Lemma 2}
+Suppose you have two $m \times m$ block diagonal operators:
+\[
+A = \begin{pmatrix} 
+A_{1} & 0 ... & 0\\
+0 & A_{2} & ... & 0\\
+... &... &... & ...\\
+0 & ... & ... & A_{m}\\
+\end{pmatrix}
+B = \begin{pmatrix}
+B_{1} & 0 ... & 0\\
+0 & B_{2} & ... & 0\\
+... &... &... & ...\\
+0 & ... & ... &B_{m}\\
+\end{pmatrix}
+\]
+Where each $A_{i}, B_{i}$ is an $a_{i} \times a_{i}$ block. Then, letting $P(A_{i}, B_{i})$ represent the block of the products of $A_{i}$ and $B_{i}$ as $a_{i} \times a_{i}$ matrices, we get:
+\[
+AB = \begin{pmatrix}
+P(A_{1}, B_{1}) & 0 ... & 0\\
+0 & P(A_{2}, B_{2}) & ... & 0\\
+... &... &... & ...\\
+0 & ... & ... & P(A_{m}, B_{m})\\
+\end{pmatrix}
+\]
+\subsubsection*{Proof:}
+For a general block diagonal matrix with $m$ $a_{i} \times a_{i}$ diagonal blocks $T_{1} ... T_{m}$, we can write:
+\[T_{ij} = \begin{cases}
+\sum_{p=1}^{k-1}a_{p} < i \leq \sum_{p=1}^{k}a_{p} \text{ and } \sum_{p=1}^{k-1}a_{p} < j \leq \sum_{p=1}^{k}a_{p}: & (T_{k})_{(i - \sum_{p=1}^{k-1}a_{p}, j - \sum_{p=1}^{k-1}a_{p})}\\
+\text{ otherwise }: & 0
+\end{cases}
+\]
+\end{document}
