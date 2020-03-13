@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bbold}
+\begin{document}
+Let dim $v = n$. Then, suppose $v \in G(\lambda, T) = \text{null }(T-\lambda I)^{n}$, so $(T-\lambda I)^{n} v = 0$:
+\begin{align*}
+(T-\lambda I)^{n} &= \sum_{k=0}^{n} {n \choose k}(T)^{n-k}(\lambda)^{k}\\
+\end{align*}
+So:
+\begin{align*}
+&\sum_{k=0}^{n} {n \choose k}(T)^{n-k}(\lambda)^{k} v = 0\\
+&\iff \lambda^{-n} T^{-n} \sum_{k=0}^{n} {n \choose k}(T)^{n-k}(\lambda)^{k} v = (\lambda^{-n} T^{-n}) 0\\
+&\iff \sum_{k=0}^{n} {n \choose k} T^{-n} (T)^{n-k} \lambda^{-n}(\lambda)^{k} v = 0\\
+&\iff (\sum_{k=0}^{n} {n \choose k} T^{-k}(\lambda)^{k-n}) v = 0\\
+&\iff (\sum_{k=0}^{n} {n \choose k} T^{-k}(\frac{1}{\lambda})^{n-k}) v = 0\\
+&\iff (T-\frac{1}{\lambda}I)^{n} v= 0
+\end{align*}
+Which implies that $v\in G(\frac{1}{\lambda}, T^{-1}) \iff v\in G(\lambda, T)$, as desired.
+\end{document}
