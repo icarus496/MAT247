@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{bbold}
+\begin{document}
+\subsubsection*{Q6}
+Assume there does not exist a direct sum decompostion of $V$ into two invariant subspaces. Since $V$ is a complex vector space, we know $T$ has at least one eigenvalue. We also know \[
+V = G(\lambda_{1}, T) \oplus ... \oplus G(\lambda_{n}, T)
+\]
+With each $G(\lambda_{i}, T)$ invariant under $T$. However, if $n>1$, then we can write $V$ as the sum of two invariant subspaces (by taking sums of generalized eigenspaces). So, $n = 1$, meaning $\lambda_{1}$ is the only eigenval of $T$, and $V = G(\lambda_{1}, T)$, so the minimal polynomial of $T$ is $p(T) = (z-\lambda)^{\text{dim } V}$. \\
+For the other directon, suppose $p(T) = (z-\lambda)^{\text{dim } V}$. We know that $\lambda$ is the only eigenvalue of $T$. Assume by contradiction that $V = U_{1} \oplus U_{2}$, with $U_1, U_2$ invariant under $T$. Note that $1 \leq dim(U_1), dim(U_2)$ since they're proper subspaces, and $dim(U_1), dim(U_2) < dim(V)$. Now, let $\alpha_{1},...\alpha_{n}$ be a basis for $U_{1}$, and $\beta_{1}, ..., \beta_{m}$ be a basis for $U_{2}$.\\
+Now, we know that since $\lambda$ is the only eigenval of $T$, that \[
+p(T\vline_{U_{1}}) = (z-\lambda)^{dim U_{1}}\\
+\]
+\[
+p(T\vline_{U_{2}}) = (z-\lambda)^{dim U_{2}}
+\]
+Since $U_{1}, U_{2}$ invariant under $T$, they're also invariant under polynomials of $T$. So, if $v \in V$, 
+\begin{align*}
+v &= a_{1}\alpha_{1} + ... + a_{n}\alpha_{n} + b_{1}\beta_{1} + ... + b_{m}\beta_{m}\\
+(T-\lambda I)^{j}v &= (T-\lambda I)^{j}(a_{1}\alpha_{1} + ... + a_{n}\alpha_{n} + b_{1}\beta_{1} + ... + b_{m}\beta_{m})\\
+&=(T-\lambda I)^{j}\vline_{U_{1}}(a_{1}\alpha_{1} + ... + a_{n}\alpha_{n}) + (T-\lambda I)^{j}\vline_{U_{2}}(b_{1}\beta_{1} + ... + b_{m}\beta_{m})\\
+\end{align*}
+The first term is 0 for $j \geq dim U_{1}$, and the second is 0 for $j \geq dim U_{2}$, so $(T-\lambda I)^{j}v = 0$ for $j = max\{dim U_{1}, dim U_{2}\}$, but $dim(U_1), dim(U_2) < dim(V)$, contradicting $p(T) = (z-\lambda)^{\text{dim } V}$, meaning $V \neq U_{1} \oplus U_{2}$, completing the proof.
+\end{document}
